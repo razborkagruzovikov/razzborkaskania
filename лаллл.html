@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Грузовая разборка Scania — запчасти для грузовиков</title>
+    <style>
+        :root {
+            --bg-color: #87CEEB;
+            --dark-blue: #191970;
+            --medium-blue: #2B4B6B;
+            --text-dark: #000;
+            --text-muted: #2F4F4F;
+            --white: #fff;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-hover: rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: Georgia, serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: var(--dark-blue);
+            font-size: 2.8em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: block;
+            width: 280px;
+            margin: 20px auto;
+            padding: 16px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--white);
+            background-color: var(--dark-blue);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+
+        .button:hover {
+            background-color: var(--medium-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px var(--shadow-hover);
+        }
+
+        #parts-info {
+            margin-top: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            display: none;
+            color: var(--dark-blue);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 5px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .address {
+            white-space: pre-line;
+            font-size: 0.9em;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(25, 25, 112, 0.1);
+            border-top: 1px solid var(--dark-blue);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.95em;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Грузовая разборка Scania</h1>
+            <p>Предлагаем большой выбор запчастей</p>
+        </header>
+
+        <section>
+            <a href="tel:+79282061500" class="button">
+                Связь с нами
+                <span class="address">
+                    8 928 206‑15‑00
+                    Краснодарский край, Абинский район,
+                    пос. Ахтырский, улица Механизаторов, 1
+                </span>
+            </a>
+
+            <button class="button" onclick="showPartsInfo()" aria-expanded="false" aria-controls="parts-info">
+                Показать ассортимент запчастей
+            </button>
+
+            <div id="parts-info" role="region" aria-labelledby="parts-heading">
+                <h2 id="parts-heading" style="display: none;">Ассортимент запчастей</h2>
+                Scania: 92, 93, 112, 113, 142, 143, 144, 124, 114<br>
+                Запчасти: блоки, двигатели, ГБЦ, коленчатый вал,<br>
+                насосы ТНВД, турбины и т. д.
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2024 Грузовая разборка Scania. Все права защищены.</p>
+        </footer>
+    </div>
+
+    <script>
+        function showPartsInfo() {
+            const info = document.getElementById('parts-info');
+            const button = document.querySelector('.button[onclick="showPartsInfo()"]');
+
+            if (info.style.display === 'block') {
+                info.style.display = 'none';
+                button.setAttribute('aria-expanded', 'false');
+            } else {
+                info.style.display = 'block';
+                button.setAttribute('aria-expanded', 'true');
+            }
+        }
+    </script>
+</body>
+</html>
